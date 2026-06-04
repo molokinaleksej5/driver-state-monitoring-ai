@@ -1,0 +1,98 @@
+project:
+  seed: 42
+  image_size: [224, 224]
+  batch_size: 32
+  sequence_length: 16
+  sequence_stride: 4
+
+  # Для State Farm используются исходные 10 классов c0-c9.
+  # Это снижает грубое объединение разных отвлечений в один общий класс distracted.
+  class_names:
+    - c0_safe
+    - c1_texting_right
+    - c2_phone_right
+    - c3_texting_left
+    - c4_phone_left
+    - c5_radio
+    - c6_drinking
+    - c7_reaching
+    - c8_makeup
+    - c9_talking
+
+  dangerous_states:
+    - c1_texting_right
+    - c2_phone_right
+    - c3_texting_left
+    - c4_phone_left
+    - c5_radio
+    - c6_drinking
+    - c7_reaching
+    - c8_makeup
+    - c9_talking
+
+paths:
+  dataset_original: dataset_original
+  data_dir: data
+  train_dir: data/train
+  val_dir: data/val
+  test_dir: data/test
+  artifacts_dir: artifacts
+  models_dir: artifacts/models
+  reports_dir: artifacts/reports
+  figures_dir: artifacts/figures
+  logs_dir: artifacts/logs
+
+state_farm_mapping:
+  c0: c0_safe
+  c1: c1_texting_right
+  c2: c2_phone_right
+  c3: c3_texting_left
+  c4: c4_phone_left
+  c5: c5_radio
+  c6: c6_drinking
+  c7: c7_reaching
+  c8: c8_makeup
+  c9: c9_talking
+
+training:
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  frame_epochs_stage1: 8
+  frame_epochs_stage2: 6
+  temporal_epochs: 8
+  learning_rate: 0.0001
+  fine_tune_learning_rate: 0.00001
+  dropout: 0.35
+  class_weighting: true
+
+decision:
+  confidence_threshold: 0.78
+  smoothing_window: 30
+  danger_frames_threshold: 24
+  risk_green: 0.40
+  risk_yellow: 0.70
+  risk_red: 0.90
+  attention_threshold: 0.25
+
+attention:
+  top_k: 5
+  min_area_ratio: 0.001
+  threshold: 0.25
+
+risk_weights:
+  c0_safe: 0.0
+  c1_texting_right: 1.0
+  c2_phone_right: 0.9
+  c3_texting_left: 1.0
+  c4_phone_left: 0.9
+  c5_radio: 0.45
+  c6_drinking: 0.65
+  c7_reaching: 0.85
+  c8_makeup: 0.8
+  c9_talking: 0.35
+
+video:
+  camera_id: 0
+  process_every_n_frame: 2
+  output_fps_fallback: 25

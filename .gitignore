@@ -216,3 +216,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Large video files
+artifacts/videos/*.mp4
+*.mp4
+
+# Large video files
+artifacts/videos/*.mp4
+*.mp4
+
+# Datasets
+data/
+dataset/
+dataset_original/
+
+# Cache
+__pycache__/
+*.pyc

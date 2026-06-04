@@ -1,0 +1,20 @@
+{
+  "total_frames": 5361,
+  "face_detected_percent": 100.0,
+  "dangerous_frames": 5279,
+  "dangerous_percent": 98.47,
+  "warnings_count": 1716,
+  "max_risk_score": 0.9998,
+  "mean_risk_score": 0.7325,
+  "state_distribution_percent": {
+    "c5_radio": 39.86,
+    "c9_talking": 19.14,
+    "c8_makeup": 16.08,
+    "c3_texting_left": 15.56,
+    "c1_texting_right": 4.03,
+    "c7_reaching": 3.81,
+    "c0_safe": 1.53
+  },
+  "csv_path": "C:\\Users\\egork\\PycharmProjects\\Bailiev_KRPN\\artifacts\\logs\\session_20260514_125321.csv",
+  "video_path": "C:\\Users\\egork\\PycharmProjects\\Bailiev_KRPN\\artifacts\\videos\\annotated_20260514_125321.mp4"
+}

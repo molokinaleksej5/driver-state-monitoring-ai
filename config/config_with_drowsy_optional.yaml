@@ -1,0 +1,57 @@
+project:
+  seed: 42
+  image_size: [224, 224]
+  batch_size: 32
+  sequence_length: 16
+  sequence_stride: 4
+  class_names: [alert, phone, distracted, drowsy]
+  dangerous_states: [phone, distracted, drowsy]
+
+paths:
+  dataset_original: dataset_original
+  data_dir: data
+  train_dir: data/train
+  val_dir: data/val
+  test_dir: data/test
+  artifacts_dir: artifacts
+  models_dir: artifacts/models
+  reports_dir: artifacts/reports
+  figures_dir: artifacts/figures
+  logs_dir: artifacts/logs
+
+state_farm_mapping:
+  c0: alert
+  c1: phone
+  c2: phone
+  c3: phone
+  c4: phone
+  c5: distracted
+  c6: distracted
+  c7: distracted
+  c8: distracted
+  c9: distracted
+
+training:
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  frame_epochs_stage1: 8
+  frame_epochs_stage2: 6
+  temporal_epochs: 8
+  learning_rate: 0.0001
+  fine_tune_learning_rate: 0.00001
+  dropout: 0.35
+  class_weighting: true
+
+decision:
+  confidence_threshold: 0.60
+  smoothing_window: 12
+  danger_frames_threshold: 14
+  risk_green: 0.30
+  risk_yellow: 0.55
+  risk_red: 0.75
+
+video:
+  camera_id: 0
+  process_every_n_frame: 2
+  output_fps_fallback: 25

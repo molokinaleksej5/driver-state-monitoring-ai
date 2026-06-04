@@ -1,0 +1,15 @@
+{
+  "total_frames": 5361,
+  "face_detected_percent": 86.25,
+  "dangerous_frames": 4629,
+  "dangerous_percent": 86.35,
+  "warnings_count": 4603,
+  "max_risk_score": 1.0,
+  "mean_risk_score": 0.8612,
+  "state_distribution_percent": {
+    "distracted": 86.35,
+    "no_face": 13.65
+  },
+  "csv_path": "C:\\Users\\egork\\PycharmProjects\\Bailiev_KRPN\\artifacts\\logs\\session_20260514_095949.csv",
+  "video_path": "C:\\Users\\egork\\PycharmProjects\\Bailiev_KRPN\\artifacts\\videos\\annotated_20260514_095949.mp4"
+}

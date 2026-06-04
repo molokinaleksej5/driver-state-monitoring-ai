@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DriverStateNN — веб-интерфейс</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero card">
+      <div>
+        <p class="eyebrow">Дипломный программный модуль</p>
+        <h1>Оценка состояния водителя в реальном времени</h1>
+        <p class="lead">Нейросеть определяет состояние водителя, рассчитывает риск и показывает зоны кадра, на которые модель опирается при принятии решения.</p>
+      </div>
+      <div class="status" id="modelStatus">Модель: ожидает запуска</div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Онлайн-анализ с камеры</h2>
+        <p class="muted">Видео обрабатывается в браузере: кадры отправляются на сервер, сервер возвращает изображение с Grad-CAM и несколькими малыми прямоугольниками внимания по всему кадру.</p>
+        <div class="controls">
+          <button id="startBtn">Включить камеру</button>
+          <button id="stopBtn" class="secondary">Остановить</button>
+          <label class="switch"><input type="checkbox" id="attentionToggle" checked /> показывать зоны внимания</label>
+        </div>
+        <video id="camera" autoplay playsinline muted></video>
+      </div>
+
+      <div class="card">
+        <h2>Результат нейросети</h2>
+        <img id="output" class="output" alt="Кадр с визуализацией" />
+        <div class="metrics">
+          <div><span>Состояние</span><strong id="state">—</strong></div>
+          <div><span>Уверенность</span><strong id="confidence">—</strong></div>
+          <div><span>Риск</span><strong id="risk">—</strong></div>
+          <div><span>Тревога</span><strong id="warning">—</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Анализ видеофайла</h2>
+      <p class="muted">Можно загрузить запись поездки. Система сохранит аннотированное видео, CSV-журнал и JSON-отчет в папку artifacts.</p>
+      <form id="videoForm" class="upload">
+        <input type="file" id="videoFile" accept="video/*" />
+        <button type="submit">Проанализировать видео</button>
+      </form>
+      <pre id="videoReport"></pre>
+    </section>
+  </main>
+
+  <canvas id="canvas" hidden></canvas>
+  <script src="/static/app.js"></script>
+</body>
+</html>

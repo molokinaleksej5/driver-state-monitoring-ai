@@ -1,0 +1,16 @@
+{
+  "class_names": [
+    "c0_safe",
+    "c1_texting_right",
+    "c2_phone_right",
+    "c3_texting_left",
+    "c4_phone_left",
+    "c5_radio",
+    "c6_drinking",
+    "c7_reaching",
+    "c8_makeup",
+    "c9_talking"
+  ],
+  "best_model": "C:\\Users\\egork\\PycharmProjects\\Bailiev_KRPN\\artifacts\\models\\frame_model_best.keras",
+  "final_model": "C:\\Users\\egork\\PycharmProjects\\Bailiev_KRPN\\artifacts\\models\\frame_model_final.keras"
+}
